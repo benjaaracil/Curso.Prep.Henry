@@ -10,6 +10,8 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+  let array = Object.entries(objeto);
+  return array;
 }
 
 
@@ -18,6 +20,14 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  var objeto = {}
+  for (var i = 0; i < string.length; i++) {
+    if (!objeto[string[i]]) {
+      objeto[string[i]] = 0;
+    }
+    objeto[string[i]] += 1;
+  }
+  return objeto
 }
 
 
@@ -43,8 +53,16 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  var numS = numero.toString();
+  String.prototype.reverse = function(){
+    return this.split("").reverse().join("");
+  }
+  var inverseNum = numS.reverse();
+  if (numS == inverseNum)
+    return "Es capicua";
+  else 
+    return "No es capicua";
 }
-
 
 function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
